@@ -1,0 +1,19 @@
+.sidebar {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	
+	@include mq(sm) {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	@include mq(md) {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+
+	@include mq(hd) {
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+}

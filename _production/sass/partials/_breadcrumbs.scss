@@ -1,0 +1,28 @@
+.breadcrumbs {
+	margin-top: 1rem;
+	color: #fff;
+	font-size: 1.3rem;
+	line-height: 3rem;
+	text-align: center;
+	
+	@include mq(sm) {
+		margin-top: 0;
+		text-align: left;
+	}
+
+	a {
+		display: inline-block;
+		color: inherit;
+
+		&::after {
+			content: '\00B7';
+			margin-right: .6rem;
+			margin-left: .8rem;
+			color: #fff;
+		}
+
+		&:hover {
+			color: darken($orange-dark, 15%);
+		}
+	}	
+}

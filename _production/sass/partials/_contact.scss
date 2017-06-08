@@ -1,0 +1,15 @@
+.contact__section {
+	@extend .section--l;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+
+	@include mq(lg) {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+
+	@include mq(hd) {
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+}

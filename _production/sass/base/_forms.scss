@@ -1,0 +1,61 @@
+/**
+ * Form reset/basic styling
+ **/ 
+
+input,
+select,
+button,
+textarea {
+	display: inline-block;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+	white-space: normal;
+	border-radius: 0;
+}
+
+textarea {
+	vertical-align: top;
+	overflow: auto;
+	box-shadow: none;
+}
+
+select,
+textarea,
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+	-webkit-appearance: none;
+}
+
+input[type="submit"],
+button {
+	cursor: pointer;
+}
+
+
+
+/**
+ * Placeholders
+ **/ 
+
+::-webkit-input-placeholder {
+	color: inherit;
+}
+
+:-moz-placeholder {
+	color: inherit;
+}
+
+::-moz-placeholder {
+	color: inherit;
+}
+
+:-ms-input-placeholder {  
+	color: inherit;
+}
+
+// Search
+::-webkit-search-decoration {
+	display: none;
+}
+

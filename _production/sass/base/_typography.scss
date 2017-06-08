@@ -1,0 +1,56 @@
+/**
+ * Base typography
+ * ================================================== */ 
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+	font-family: $heading;
+	color: $colour-heading;
+	hyphens: auto;
+	line-height: 1.1;
+	font-size: 2rem;
+
+	> a {
+		color: inherit;
+	}
+}
+
+
+// Miscellaneous typographic tags
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+a {
+	color: $orange;
+	text-decoration: none;
+	transition: all .3s linear;
+}
+
+
+// Helpers
+.sr-only {
+	@include sr;
+}
+
+.ir {
+	@include ir;
+}
+
+// Text selection
+::selection {
+	background: rgba($grey-dark, .99);
+	color: #fff;
+}
+
+// Alignment
+.align {
+
+	&--center {
+		text-align: center;
+	}
+}

@@ -1,0 +1,234 @@
+.page {
+
+	&--split {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		.page__header--split {
+			@include mq($until: lg) {
+				width: 100%;
+			}
+
+			@include mq(lg) {
+				order: 2;
+				display: flex;
+				align-items: center;
+			}
+		}
+		.page__content--split {
+			@include mq($until: lg) {
+				width: 100%;
+			}
+
+			@include mq(lg) {
+				order: 1;
+			}
+		}
+	}
+
+	&__inner {
+		&--split {
+			width: 100%;
+		}
+	}
+
+	&__header {
+
+		&--large,
+		&--split {
+			position: relative;
+			background: no-repeat center center;
+			background-size: cover;
+			text-align: center;
+
+			&::after {
+				content: '';
+				position: absolute;
+				z-index: 100;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba($black, .5);
+			}
+		}
+
+
+		&--blog {
+			display: flex;
+			justify-content: space-between;
+			@extend .section--l;
+		}
+
+		&--large {
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+			color: #fff;
+
+			@include mq(sm) {
+				padding-top: 5rem;
+				padding-bottom: 5rem;
+			}
+
+			@include mq(md) {
+				padding-top: 7.5rem;
+				padding-bottom: 7.5rem;
+			}
+
+			@include mq(lg) {
+				padding-top: 10rem;
+				padding-bottom: 10rem;
+			}
+
+			@include mq(hd) {
+				padding-top: 15rem;
+				padding-bottom: 15rem;
+			}
+
+		}
+
+		&--split {
+			align-content: center;
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+
+			@include mq(sm) {
+				padding-top: 5rem;
+				padding-bottom: 5rem;
+			}
+
+			@include mq(md) {
+				padding-top: 7.5rem;
+				padding-bottom: 7.5rem;
+			}
+
+
+			@include mq($until: lg) {
+				width: 100%;
+			}
+		}
+	}
+
+	&__title,
+	&__subtitle {
+		position: relative;
+		z-index: 200;
+		color: #fff;
+	}
+
+	&__title {
+		font-size: 3rem;
+		font-weight: 700;
+
+		@include mq(sm) {
+			font-size: 4rem;
+		}
+
+		@include mq(md) {
+			font-size: 5.6rem;
+		}
+
+		@include mq(lg) {
+			font-size: 7rem;
+		}
+
+		@include mq(hd) {
+			font-size: 8.4rem;
+		}
+
+		&--blog {
+			font-size: 3rem;
+			text-transform: uppercase;
+			color: $orange;
+		}
+
+
+		& + .page__subtitle {
+			margin-top: 2rem;
+			padding-top: 2rem;
+
+			@include mq(md) {
+				margin-top: 3rem;
+				padding-top: 3rem;
+			}
+
+			@include mq(lg) {
+				margin-top: 3.5rem;
+				padding-top: 3.5rem;
+			}
+		}
+	}
+
+	&__subtitle {
+		font-size: 1.8rem;
+		font-family: $body;
+		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: .175em;
+		
+		@include mq(sm) {
+			font-size: 2.4rem;
+		}
+
+		@include mq(md) {
+			font-size: 3rem;
+		}
+
+		@include mq(lg) {
+			font-size: 3.4rem;
+		}
+
+		@include mq(hd) {
+			font-weight: 300;
+			font-size: 3.8rem;
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			display: block;
+		}
+
+		&::before {
+			top: 0;
+			width: 24rem;
+			height: .1rem;
+			background: linear-gradient(to right, #fff, #fff 43%, transparent 43%, transparent 57%, #fff 57%);
+
+			@include mq(sm) {
+				width: 44rem;
+			}
+
+			@include mq(hd) {
+				width: 44rem;
+			}
+		}
+
+		&::after {
+			top: -1rem;
+			width: 2rem;
+			height: 2rem;
+			background: url('../images/logo-small.svg') no-repeat center center;
+			background-size: contain;
+		}
+	}
+
+	&__content {
+		padding-right: 1.5rem;
+		padding-left: 1.5rem;
+
+		@include mq(lg) {
+			padding-right: 3rem;
+			padding-left: 3rem;
+		}
+
+		@include mq(hd) {
+			padding-right: 5rem;
+			padding-left: 5rem;
+		}
+	}
+}

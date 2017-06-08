@@ -1,0 +1,42 @@
+.header {
+	position: relative;
+	z-index: $z-header;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: $header-height - 2rem;
+	background: $orange;
+	transition: all .65s $cubic;
+	@extend .section--m;
+
+	@include mq(lg) {
+		height: $header-height;
+
+	}
+
+
+	.error404 &,
+	.home & {
+		background: none;
+	}
+	
+	// Logo
+	&__logo {
+		display: block;
+		width: 4.5rem;
+		height: 4.5rem;
+		background: transparent url('../images/logo-small.svg') no-repeat center center;
+		background-size: contain;
+		transition: none;
+
+		.home & {
+			cursor: default;
+		}
+
+		@include mq(md) {
+			background-image: url('../images/logo.svg');
+			width: 20rem;
+			height: 3.6rem;
+		}
+	}
+}

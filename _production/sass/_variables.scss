@@ -1,0 +1,150 @@
+/**
+ * Colours
+ **/ 
+
+$red: #C0392B;
+
+$orange: #FF6B00;
+$orange-dark: #F35702;
+
+$grey-lighter: #fafafa;
+$grey-light: #a4a4a4;
+$grey: #7d7d7d;
+$grey-dark: #505050;
+
+$black: #000;
+
+$colour-text: darken($grey, 10%);
+$colour-heading: lighten($black, 15%);
+
+
+
+/**
+ * Fonts
+ **/ 
+
+$body: 'proxima-nova-soft', 'Proxima Nova Soft', sans-serif;
+$heading: 'sofia-pro', 'LL Brown', 'Brown', sans-serif;
+
+
+
+/**
+ * Sizes
+ **/ 
+
+$header-height: 10rem;
+
+
+
+/**
+ * Z-indexes
+ **/ 
+
+$z-hero: 200;
+$z-loader: 500;
+$z-header: 800;
+$z-nav-overlay: 900;
+$z-nav: 1000;
+$z-nav-toggle: 1100;
+$z-status: 950;
+
+
+
+/**
+ * Icons
+ **/ 
+
+$icons: (
+	'icon-blog',
+	'icon-bullet',
+	'icon-caret',
+	'icon-cases',
+	'icon-contact',
+	'icon-email',
+	'icon-facebook',
+	'icon-google',
+	'icon-home',
+	'icon-job',
+	'icon-linkedin',
+	'icon-phone',
+	'icon-pin',
+	'icon-produktion',
+	'icon-quote',
+	'icon-salg',
+	'icon-social',
+	'icon-support',
+	'icon-team',
+	'icon-twitter',
+	'icon-vision'
+);
+
+// Menu icons 
+$menu-icons: (
+	'icon-document',
+	'icon-home',
+	'icon-team',
+	'icon-vision',
+	'icon-job',
+	'icon-blog',
+	'icon-cases',
+	'icon-contact',
+	'icon-facebook',
+	'icon-linkedin',
+	'icon-google',
+	'icon-support'
+);
+
+
+// Icomoon
+$icomoon-font-path: "../fonts" !default;
+
+$icon--comments: "\e901";
+$icon--mail: "\e0e1";
+$icon--clock: "\e014";
+$icon--pin: "\f041";
+$icon--phone: "\f095";
+$icon--facebook: "\f09a";
+$icon--facebook-f: "\f09a";
+$icon--google-plus: "\f0d5";
+$icon--linkedin: "\f0e1";
+$icon--angle-right: "\f105";
+$icon--angle-down: "\f107";
+$icon--category: "\f114";
+$icon--eye: "\e902";
+$icon--quote: "\e900";
+
+
+/**
+ * Effects and animations
+ **/ 
+
+$cubic: cubic-bezier(.55, 0, .1, 1);
+
+
+/**
+ * Media queries - breakpoints
+ **/ 
+
+$grid-breakpoints: (
+	xs:	480px,
+	sm:	768px,
+	md:	992px,
+	lg:	1200px,
+	hd: 	1600px
+);
+
+
+
+/**
+ * Grid settings
+ **/ 
+
+$grid-columns: 12;
+$grid-gutter-width: 3rem;
+
+// Container widths
+$container-widths: (
+	sm: 75rem,
+	md: 97rem,
+	lg: 117rem
+);

@@ -1,0 +1,164 @@
+.job-post {
+	overflow: hidden;
+	position: relative;
+	
+	@include mq(sm) {
+		&:nth-child(odd) {
+			.job-post {
+				&__featured {
+					left: auto;
+					right: 0;
+				}
+
+				&__content {
+					float: left;
+				}
+			}
+		}
+	}
+
+	&__featured {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding-bottom: 30rem;
+		background: no-repeat center center;
+		background-size: cover;
+
+		&:hover {
+			&::before {
+				opacity: 1;
+			}
+
+			&:after {
+				opacity: 1;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		@include mq(sm) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 50%;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			z-index: 100;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba($black, .5);
+			opacity: 0;
+			transition: all .3s ease;
+		}
+
+		&::after {
+			content: '\e902';
+			position: absolute;
+			z-index: 200;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -60%);
+			font-family: 'atriumweb';
+			color: #fff;
+			font-size: 4rem;
+			opacity: 0;
+			transition: all .3s ease;
+		}
+	}
+
+	&__title {
+		font-size: 2.4rem;
+		color: $orange;
+		font-weight: 700;
+
+		@include mq(xs) {
+			font-size: 2.8rem;
+		}
+
+		&:hover {
+			color: $black;
+		}
+	}
+
+	&__meta {
+		margin-top: 1rem;
+		overflow: hidden;
+
+		&-item {
+			float: left;
+			text-transform: uppercase;
+			font-size: 1.4rem;
+			font-weight: 700;
+			color: $grey-light;
+
+			& + & {
+				margin-left: 1rem;
+
+				&::before {
+					margin-right: 1rem;
+					content: '\00B7';
+				}
+			}
+		}
+	}
+
+	&__content {
+		padding: 1.5rem;
+
+		@include mq(sm) {
+			width: 50%;
+			float: right;
+			padding: 2rem;
+		}
+		
+		@include mq(md) {
+			padding: 4rem;
+		}
+
+		@include mq(lg) {
+			padding: 5rem;
+		}
+
+		@include mq(hd) {
+			padding: 8rem;
+		}
+	}
+
+	&__excerpt {
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: .2rem solid $grey-lighter;
+
+		p + p {
+			margin-top: 1rem;
+		}
+	}
+
+	&__more {
+		margin-top: 1rem;
+		display: block;
+
+		&::after {
+			display: inline-block;
+			vertical-align: bottom;
+			margin-left: .5rem;
+			content: '\f105';
+			@include icon;
+			transition: transform .3s ease;
+		}
+
+		&:hover {
+			color: $black;
+
+			&::after {
+				transform: translateX(.5rem);
+			}
+		}
+	}
+}

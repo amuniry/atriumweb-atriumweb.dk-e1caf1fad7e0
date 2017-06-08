@@ -1,0 +1,20 @@
+/**
+ * Status message
+ **/ 
+
+.status {
+	position: fixed;
+	bottom: 0; 
+	left: 0;
+	width: 100%;
+	z-index: $z-status;
+	padding: 1.5rem;
+	text-align: center;
+	color: #fff;
+	background: $black;
+	font-size: 1.3rem;
+
+	@include mq(md) {
+		font-size: 1.6rem;
+	}
+}

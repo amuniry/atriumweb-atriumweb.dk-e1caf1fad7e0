@@ -1,0 +1,103 @@
+/**
+ * Departments
+ **/ 
+
+// Wrapper
+.departments {
+
+}
+
+// Item
+.department {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: column wrap;
+
+	@include mq(sm) {
+		flex-direction: row;
+
+		&:nth-child(odd) {
+			.department__content {
+				order: 2;
+			}
+
+			.department__map {
+				order: 1;
+			}
+		}
+	}
+
+
+	/**
+	 * Content
+	 **/ 
+
+	&__title {
+		margin-bottom: .5rem;
+		color: $orange; 
+		font-weight: 700;
+		font-size: 2.6rem;
+		
+		@include mq(sm) {
+			font-size: 3rem;
+		}
+	}
+
+	&__subtitle {
+		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		color: $black;
+	}
+
+	&__meta {
+		margin-top: 3rem;
+	}
+
+	&__contact {
+		overflow-y: hidden;
+
+		& + & {
+			margin-top: 1.5rem;
+		}
+
+		&-icon {
+			margin-right: 1rem;
+			float: left;
+			width: 4.5rem;
+			height: 4.5rem;
+			font-size: 2rem;
+			line-height: 4.5rem !important;
+			text-align: center;
+			color: $orange;
+			border: .2rem solid $grey-lighter;
+		}
+
+		&-text {
+			display: block;
+			float: left;
+			width: calc(100% - 5.5rem);
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+			border: .2rem solid $grey-lighter;
+			line-height: 4.1rem;
+		}
+
+		a {
+			color: $black;
+
+			&:hover {
+				color: $orange;
+			}
+		}
+	}
+
+
+	/**
+	 * Maps
+	 **/ 
+
+	&__map {
+		min-height: 25rem;
+	}
+}

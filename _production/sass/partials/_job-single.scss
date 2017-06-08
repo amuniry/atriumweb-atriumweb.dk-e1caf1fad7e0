@@ -1,0 +1,39 @@
+.job {
+	
+	&-wrapper {
+		@include mq(sm, md) {
+			flex-flow: wrap column;
+		}
+	}
+	
+	/**
+	 * Job sidebar - EQUAL MOTHERFUCKING HEIGHT!!!!!!!!!!!!!!
+	 **/ 
+
+	&__sidebar {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__header {
+		flex: 0 0 auto;	
+	}
+
+	&__featured {
+		display: none;
+
+		@include mq(md) {
+			display: block;
+			flex: 0 0 auto;
+		}
+	}
+
+	&__map {
+		display: none;
+
+		@include mq(md) {
+			display: block;
+			flex: 1 1 auto;
+		}
+	}
+}

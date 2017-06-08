@@ -1,0 +1,111 @@
+.author {
+	position: relative;
+	padding-top: 2rem;
+	background: $orange;
+
+	@include mq(lg) {
+		padding-top: 3rem;
+	}
+
+	@include mq(hd) {
+		padding-top: 0;
+		background: none;
+		padding-left: 3rem;
+	}
+	
+
+	/**
+	 * Avatar
+	 **/ 
+	&__avatar {
+		margin-right: auto;
+		margin-left: auto;
+		border-radius: 50%;
+		border: .5rem solid #fff;
+		max-width: 12rem;
+
+		@include mq(lg) {
+			margin: 0;
+			position: absolute;
+			top: -3.5rem;
+			left: -3.5rem;
+		}
+	}
+
+	/**
+	 * Text
+	 **/ 
+	
+	&__meta {
+		padding: 2rem;
+		background: $orange;
+		font-size: 1.4rem;
+
+		@include mq(md) {
+			padding: 3rem;
+		}
+
+		@include mq(lg) {
+			padding-left: 7rem;
+		}
+	}
+
+	/**
+	 * Header
+	 **/ 
+
+	&__header {
+		color: #fff;
+
+		&::after {
+			content: '';
+			margin-top: .5rem;
+			display: block;
+			width: 3.5rem;
+			height: .3rem;
+			background: darken($orange, 10%);
+		}
+
+		a {
+			position: relative;
+			color: inherit;
+
+			&:hover {
+				color: lighten($orange, 35%);
+
+				&::after {
+					width: 100%;
+				}
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: -.3rem;
+				width: 0;
+				height: .1rem;
+				background: lighten($orange, 30%);
+				transition: width .4s $cubic;
+			}		
+		}
+	}
+
+	&__name {
+		margin-bottom: .5rem;
+		font-size: 2rem;
+		font-weight: 700;
+		color: inherit;
+	}
+
+
+	/**
+	 * Description
+	 **/ 
+
+	&__description {
+		margin-top: 1rem;
+		color: lighten($orange, 30%);
+		font-size: 1.3rem;
+	}
+}

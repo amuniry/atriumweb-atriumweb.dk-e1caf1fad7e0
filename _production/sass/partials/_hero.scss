@@ -1,0 +1,41 @@
+.hero {
+	position: relative;
+	z-index: 1;
+	height: 100vh;
+	overflow: hidden;
+	background: no-repeat center center;
+	background-size: cover;
+
+
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba($orange, .7);
+	}
+
+	&__video {
+		position: fixed;
+		z-index: -100;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+	}
+
+	&__inner {
+		position: relative;
+		z-index: 300;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+}

@@ -1,0 +1,199 @@
+.blog {
+
+	/**
+	 * Blog hero
+	 **/
+
+	&__hero {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		@extend .section--m;
+
+		@include mq(md) {
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+		}
+
+		@include mq(hd) {
+			padding-top: 5rem;
+			padding-bottom: 5rem;
+		}
+	}
+
+	&__heading {
+		font-size: 4rem;
+		color: $orange;
+		font-weight: 700;
+	}
+
+	&__filter {
+		@include mq($until: sm) {
+			display: none;
+		}
+	}
+
+
+	/**
+	 * List of blog posts
+	 **/
+
+	// Wrapper
+	&-overview {
+		padding: 0 1rem 3rem;
+	}
+
+	// Overview
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		overflow: hidden;
+
+		&::after {
+			content: '';
+			flex: auto;
+		}
+	}
+
+	// Items
+	// col-sm-6 col-md-4 col-lg-3 col-hd-2
+	&__item {
+		padding: 1rem;
+		transition: all .3s $cubic;
+
+		@include mq(xs) {
+			width: 50%;
+		}
+
+		@include mq(sm) {
+			width: (100% / 3);
+		}
+
+		@include mq(lg) {
+			width: 25%;
+		}
+
+		@include mq(hd) {
+			width: 20%;
+		}
+
+		&.is-hidden {
+			// display: none !important;
+			// opacity: .5;
+
+			position: relative;
+			height: 0;
+			width: 0;
+			padding: 0 !important;
+			> *{
+				display: none;
+			}
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__image {
+		position: relative;
+		display: block;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: rgba($black, .5);
+			opacity: 0;
+			transition: all .65s $cubic;
+		}
+
+		&:hover {
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__content {
+		font-size: 1.4rem;
+		padding: 2rem;
+		border: .2rem solid darken($grey-lighter, 3%);
+	}
+
+	&__header {
+		padding-bottom: 1rem;
+		border-bottom: .1rem solid $orange;
+	}
+
+		&__title {
+			font-weight: 700;
+			margin-bottom: .7rem;
+
+			&:hover {
+				color: $orange;
+			}
+		}
+
+		&__meta {
+			color: $grey-light;
+			font-size: 1.2rem;
+		}
+
+	&__excerpt {
+		margin-top: 1.5rem;
+	}
+
+
+	&__footer {
+		overflow: hidden;
+		margin-top: 1.5rem;
+		color: $black;
+
+		[class^="icon"] {
+			color: $orange;
+			display: inline-block;
+			line-height: inherit !important;
+			transition: all .3s $cubic;
+		}
+	}
+
+		&__more {
+			float: left;
+			color: inherit;
+
+			&:hover {
+				[class^="icon"] {
+					transform: translateX(.3rem);
+				}
+			}
+
+			[class^="icon"] {
+				vertical-align: bottom;
+			}
+		}
+
+		&__comments {
+			float: right;
+			color: inherit;
+
+			[class^="icon"] {
+				vertical-align: baseline;
+			}
+		}
+
+
+		&__more,
+		&__comments {
+			&:hover {
+				color: $orange;
+			}
+		}
+}

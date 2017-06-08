@@ -1,0 +1,22 @@
+/**
+ * Grid system
+ * ================================================== */ 
+
+// Set container with variables/breakpoints from variables
+.container {
+	@include make-container();
+	@include make-container-widths();
+}
+
+// Fluid container
+.container-fluid {
+	@include make-container();
+}
+
+// Rows
+.row {
+	@include make-row();
+}
+
+// Columns
+@include make-grid-columns();

@@ -1,0 +1,132 @@
+.slogan {
+	text-align: center;
+	color: #fff;
+
+	&__word {
+		display: block;
+
+		&--constant {
+			position: relative;
+			margin-bottom: 1.5rem;
+			padding-bottom: 3rem;
+			font-family: $body;
+			font-size: 1.8rem;
+			font-weight: 400;
+			text-transform: uppercase;
+			letter-spacing: .175em;
+
+			@include mq(sm) {
+				font-size: 2.2rem;
+			}
+
+			@include mq(md) {
+				font-size: 3rem;
+			}
+
+			@include mq(lg) {
+				font-size: 3.4rem;
+			}
+
+			@include mq(hd) {
+				font-size: 3.6rem;
+			}
+			
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				display: block;
+			}
+
+			&::before {
+				bottom: 0;
+				height: .1rem;
+				width: 28rem;
+				background: linear-gradient(to right, #fff, #fff, 38%, transparent 38%, transparent 62%, #fff 62%);
+				
+				@include mq(sm) {
+					width: 44rem;
+					background: linear-gradient(to right, #fff, #fff 43%, transparent 43%, transparent 57%, #fff 57%);
+				}
+
+				@include mq(hd) {
+					width: 44rem;
+				}
+			}
+
+			&::after {
+				bottom: -1rem;
+				width: 2rem;
+				height: 2rem;
+				background: url('../images/logo-small.svg') no-repeat center center;
+				background-size: contain;
+			}
+		}
+
+		&--placeholder {
+			font-size: 3rem;
+			font-weight: 900;
+
+			@include mq(xs) {
+				font-size: 4.8rem;
+			}
+
+			@include mq(sm) {
+				font-size: 6rem;
+			}
+
+			@include mq(md) {
+				font-size: 7.4rem;
+			}
+
+			@include mq(lg) {
+				font-size: 9.6rem;
+			}
+
+			@include mq(hd) {
+				font-size: 11rem;
+			}
+		}
+
+		&--typer {
+			transition: all .8s $cubic;
+
+			.slogan--loaded & {
+				position: absolute;
+				left: 0;
+				width: 100%;
+				// overflow: hidden;
+				opacity: 0;
+				transform: translateY(-2rem);
+			}
+
+			&.is-active {
+				opacity: 1;
+				transform: translateY(0);
+				transition-delay: .2s;
+			}
+
+			&.is-inactive {
+				opacity: 0;
+				transform: translateY(2rem);
+			}
+		}
+	}
+
+	&__cursor {
+		font-weight: 400;
+		opacity: 1;
+    	animation: blink 1.5s linear infinite;
+
+		@at-root {
+			@keyframes blink{
+				0% { opacity:1; }
+				45% { opacity:1; }
+				50% { opacity:0; }
+				100% { opacity:0; }
+			}
+		}
+	}
+}

@@ -1,0 +1,48 @@
+.navigator {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	background: $grey-lighter;
+	text-align: center;
+
+	@include mq(md) {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+
+	@include mq(lg) {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+
+	&__btn {
+		display: block;
+		padding: 1rem 1.5rem;
+		// border: .2rem solid darken($grey-lighter, 3%);
+		border: .2rem solid $grey-light;
+		// border-radius: .3rem;
+		text-transform: uppercase;
+		color: $grey;
+
+		@include mq(xs) {
+			display: inline-block;
+			padding-right: 2.5rem;
+			padding-left: 2.5rem;
+		}
+
+		@include mq(md) {
+			padding-left: 5rem;
+			padding-right: 5rem;
+		}
+
+		@include mq(hd) {
+			padding-left: 10rem;
+			padding-right: 10rem;
+		}
+	
+		&:hover {
+			background: $grey-dark;
+			border-color: $grey-dark;
+			color: #fff;
+		}
+	}
+}

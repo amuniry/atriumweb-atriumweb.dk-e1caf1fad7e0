@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "host": "78.46.9.42",
+    "username": "atriux",
+    "password": "8ETmq401"
+  },
+  "live": {
+    "host": "78.46.5.136",
+    "username": "atriuq",
+    "password": "k8nmX62Jxx1vXg3U"
+  }
+}

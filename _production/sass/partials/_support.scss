@@ -1,0 +1,55 @@
+.support {
+
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+
+	@include mq(sm) {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+
+	@include mq(lg) {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+	
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-right: -1.5rem;
+		margin-left: -1.5rem;
+	}
+
+	&__item {
+		display: flex;
+		padding: 1rem;
+
+		@include mq($until: sm) {
+			width: 100%;
+		}
+	}
+
+	&__link {
+		display: block;
+		width: 100%;
+		padding: 2.5rem;
+		background: #fff;
+		border: .2rem solid darken($grey-lighter, 3%);
+
+		&:hover {
+			border-color: $orange;
+		}
+	}
+
+	&__title {
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+	}
+
+	&__description {
+
+		font-size: 1.4rem;
+		color: $grey;
+	}
+}

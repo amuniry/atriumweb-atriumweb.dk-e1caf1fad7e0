@@ -1,0 +1,61 @@
+/**
+ * Mailchimp
+ * ================================================== */ 
+
+.mc {
+	position: relative;
+	
+	&__item {
+		position: relative;
+		width: calc(100% - 10rem);
+		position: relative;
+		height: 4.5rem;
+	}
+
+	&__input {
+		display: block;
+		padding: 0;
+		width: 100%;
+		background: none;
+		border: none;
+		height: inherit;
+		padding-top: 2rem;
+		padding-bottom: .5rem;
+		line-height: 2rem;
+		border-bottom: .1rem solid #fff;
+		outline: none;
+		color: #fff;
+	}
+
+	&__submit {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+		width: 9rem;
+		height: 9rem;
+		text-align: center;
+		line-height: 8.8rem;
+		background: transparent;
+		color: #fff;
+		border: .1rem solid #fff;
+		text-transform: uppercase;
+		transition: all .45s $cubic;
+
+		&:hover {
+			background: #fff;
+			color: $black;
+		}
+	}
+}
+
+.mc4wp {
+	&-response {
+		margin-top: 1rem;
+		font-weight: 700;
+	}
+}
+
+// <div class="mc4wp-response">
+// 	<div class="mc4wp-alert mc4wp-success"><p>TAK! Du er nu tilmeldt nyhedsbrevet! Tjek venligst din mail.</p></div>
+// </div>

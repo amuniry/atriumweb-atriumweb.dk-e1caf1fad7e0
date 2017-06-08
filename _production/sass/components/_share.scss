@@ -1,0 +1,36 @@
+.share {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	
+	&--single {
+		padding-bottom: 6rem;
+	}
+
+	&__title {
+		margin-bottom: 1rem;
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		color: $black;
+	}
+
+	&__list {
+		text-align: left;
+		height: 2rem;
+	}
+
+	&__button {
+		line-height: 2rem;
+		height: inherit;
+		display: inline-block;
+		vertical-align: top;
+
+		& + & {
+			margin-left: .5rem;
+
+			@include mq(xs) {
+				margin-left: 1rem;
+			}
+		}
+	}
+}

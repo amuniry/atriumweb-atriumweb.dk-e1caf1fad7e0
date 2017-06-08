@@ -1,0 +1,19 @@
+.box {
+	border: .3rem solid $grey-lighter;
+
+	/**
+	 * Sizes
+	 **/ 
+
+	&--l {
+		padding: 2rem;
+		
+		@include mq(md) {
+			padding: 4rem;
+		}
+
+		@include mq(lg) {
+			padding: 5rem;
+		}
+	}
+}

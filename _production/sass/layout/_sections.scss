@@ -1,0 +1,101 @@
+.section {
+	
+	/**
+	 * Specific
+	 **/ 
+
+	&--content {
+		@extend .section--l;
+	}
+
+
+	/**
+	 * Sizes
+	 **/ 
+
+	&--m {
+		padding-right: 1.5rem;
+		padding-left: 1.5rem;
+
+		@include mq(lg) {
+			padding-right: 3rem;
+			padding-left: 3rem;
+		}
+
+		@include mq(hd) {
+			padding-right: 5rem;
+			padding-left: 5rem;
+		}
+	}
+
+	&--l {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+
+		@include mq(sm) {
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+		
+		@include mq(md) {
+			padding-left: 4rem;
+			padding-right: 4rem;
+		}
+
+		@include mq(lg) {
+			padding-left: 5rem;
+			padding-right: 5rem;
+		}
+
+		@include mq(hd) {
+			padding-left: 8rem;
+			padding-right: 8rem;
+		}
+	}
+
+
+	/**
+	 * Themes
+	 **/ 
+
+	&--grey-light,
+	&--light-grey {
+		background: $grey-lighter;
+	}
+
+	&--orange {
+		background: $orange;
+	}
+
+	&--orange-dark {
+		background: darken($orange, 3%);
+	}
+
+	&--white {
+		background: #fff;
+	}
+
+
+	/**
+	 * Column section elements
+	 **/ 
+	
+	&__title {
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+		font-size: 2.4rem;
+
+		@include mq(md) {
+			margin-bottom: 2rem;
+		}
+
+		@include mq(hd) {
+			margin-bottom: 3rem;
+		}
+
+		> span {
+			color: $orange;
+		}
+	}
+
+}

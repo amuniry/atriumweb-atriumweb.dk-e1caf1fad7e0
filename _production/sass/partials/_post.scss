@@ -1,0 +1,301 @@
+/**
+ * Post styling
+ **/ 
+
+.post {
+	
+	// Post header
+	&__header {
+		position: relative;
+		background: no-repeat center center;
+		background-size: cover;
+
+		&:before {
+			content: '';
+			display: block;
+			padding-bottom: 50%;
+
+			@include mq(sm) {
+				padding-bottom: 40%;
+			}
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: 100;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(to bottom, rgba($black, 0), rgba($black, .3) 50%, rgba($black, .8) 100%);
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		z-index: 200;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding-bottom: 3rem;
+		@extend .section--l;
+	}
+
+	&__title {
+		font-size: 2.4rem;
+		color: $colour-heading;
+		color: $orange;
+		color: #fff;
+		font-weight: 700;
+
+		@include mq(sm) {
+			font-size: 2.8rem;
+		}
+
+		@include mq(md) {
+			font-size: 3rem;
+		}
+
+		@include mq(lg) {
+			font-size: 4.4rem;
+		}
+
+		@include mq(hd) {
+			font-size: 5.6rem;
+		}
+	}
+
+
+	// Post meta
+	&__meta {
+		overflow: hidden;
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+		border-bottom: .2rem solid darken($grey-lighter, 2%);
+		line-height: 3rem;
+
+		@include mq($until: sm) {
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+		}
+
+		@include mq(md) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-top: .8rem;
+			padding-bottom: .8rem;
+		}
+
+		@include mq(md) {
+			padding-top: 1.3rem;
+			padding-bottom: 1.3rem;
+		}
+
+		@include mq(lg) {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		&__item {
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 1.1rem;
+			color: $grey;
+			padding-right: 0;
+			padding-left: 0;
+
+			@include mq(xs) {
+				font-size: 1.2rem;
+			}
+			
+			@include mq(md) {
+				width: auto;
+			}
+
+			@include mq(lg) {
+				font-size: 1.4rem;
+			}
+
+			> a {
+				color: darken($grey, 25%);
+
+				&:hover {
+					color: $orange;
+				}
+			}
+		}
+
+		&__icon {
+			display: inline-block;
+			vertical-align: sub;
+			font-size: 1.4rem;
+			margin-right: .5rem;
+
+			@include mq(lg) {
+				font-size: 1.8rem;
+			}
+		}
+	}
+
+
+	// Formatted post content
+	&__content {
+
+		@include mq(md) {
+			font-size: 1.7rem;
+		}
+
+		@include mq(hd) {
+			font-size: 1.8rem;
+		}
+
+		&--single {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+
+			@include mq(hd) {
+				padding-top: 3rem;
+				padding-bottom: 3rem;
+			}
+		}
+
+		// Headings
+		h1, h2, h3, h4, h5, h6 {
+			padding-top: 1em;
+			margin-bottom: .25em;
+			font-weight: 700;
+			line-height: 1.2;
+		}
+
+		h2, .h2 {
+			// color: $orange;
+			font-size: 1.35em;
+		}
+
+		h3, .h3 {
+			font-size: 1.2em;
+			font-weight: 500;
+		}
+
+		h4, .h4,
+		h5, .h5,
+		h6, .h6 {
+			font-weight: 400;
+			font-size: 1.1em;
+			text-transform: uppercase;
+		}
+
+		// Paragraphs and lists
+		p,
+		ol,
+		ul {
+			padding-top: .5em;
+			margin-bottom: 1em;
+		}
+		
+		ul,
+		ol {
+			padding-left: 4rem;
+		}
+		
+		ol {
+			list-style: decimal;
+		}
+
+		ul {
+			list-style: disc;
+		}
+
+		a {
+			display: inline-block;
+			word-break: break-all;
+			position: relative;
+			color: $orange;
+
+			&:hover {
+				color: $black;
+			}
+		}
+
+		iframe {
+			max-width: 100%;
+		}
+
+		/**
+		 * Tables
+		 **/ 
+		
+		.table-responsive {
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		table {
+			width: 100%;
+
+			// Shared styling
+			th,
+			td {
+				min-width: 15rem;
+				padding: .8rem 1.5rem;
+			}
+			
+			// Table header
+			thead {
+				text-align: left;
+				th {
+					font-weight: 700;
+					background: $orange;
+					color: #fff;
+				}
+			}
+
+			// Table body
+			tbody {
+				font-size: .875em;
+
+				tr {
+					&:nth-child(even) {
+						td {
+							border-top: .1rem solid darken($grey-lighter, 2%);
+							background: $grey-lighter;
+						}
+					}
+				}
+			}
+
+	
+
+		}
+		
+
+		/**
+		 * WordPress core classes
+		 **/ 
+		
+		.alignnone {
+			padding-top: .5rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.aligncenter {
+			display: block;
+			padding-top: .5rem;
+			margin-right: auto;
+			margin-bottom: 1.5rem;
+			margin-left: auto;
+		}
+
+		.alignright {
+			float: right;
+			margin: .5rem 0 1.5rem 1.5rem;
+		}
+
+		.alignleft {
+			float: left;
+			margin: .5rem 1.5rem 1.5rem 0;
+		}
+	}
+}

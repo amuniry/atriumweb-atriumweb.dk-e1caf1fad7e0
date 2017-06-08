@@ -1,0 +1,43 @@
+/**
+ * Buttons
+ * ================================================== */ 
+
+.btn {
+	display: inline-block;
+	padding: 1rem 2.5rem;
+	border: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+	transition: all .3s ease;
+	text-align: center;
+	text-transform: uppercase;
+	// border-radius: .3rem;
+
+	&--o {
+		background: none;
+		border: .1rem solid;
+		color: $grey;
+	}
+
+	&--light-grey {
+		border-color: $grey-light;
+	}
+
+	&--orange {
+		background: $orange;
+		color: #fff;
+
+		&:hover {
+			background: $black;
+		}
+	}
+
+	&--block {
+		display: block;
+		text-align: center;
+
+		&:hover {
+			background: $grey-dark;
+		}
+	}
+}

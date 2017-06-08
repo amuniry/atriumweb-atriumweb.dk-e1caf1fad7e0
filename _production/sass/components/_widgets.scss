@@ -1,0 +1,68 @@
+/**
+ * Widgets
+ * ================================================== */ 
+
+.widget {
+
+	// Sections
+	&--footer {
+		line-height: 1.9;
+	}
+
+		&--contact {
+			margin-bottom: 3rem;
+
+			@include mq($until: xs) {
+				float: none;
+				width: 100%;
+			}
+		}
+
+		&--newsletter {
+			@include mq($until: md) {
+				clear: both;
+				margin-top: 3rem;
+			}
+		}
+
+	&--sidebar {
+		& + & {
+			margin-top: 3rem;
+
+			@include mq(lg) {
+				margin-top: 5rem;
+			}
+		}		
+	}
+
+
+	// Elements	
+	&__title {
+		font-weight: 700;
+		
+		&--footer {
+			margin-bottom: .5rem;
+			font-size: 1.4rem;
+			line-height: inherit;
+			text-transform: uppercase;
+			color: #fff;
+		}
+	}
+
+	&__content {
+		&--footer {
+			font-size: 1.3rem;
+			line-height: inherit;
+			color: #fff;
+
+			a {
+				color: inherit;
+
+				&:hover {
+					color: rgba(#fff, .6);
+				}
+			}
+		}
+	}
+
+}

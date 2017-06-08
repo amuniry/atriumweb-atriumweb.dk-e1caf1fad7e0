@@ -1,0 +1,61 @@
+.social {
+	
+	&--header,
+	&--footer {
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	&--header {
+		margin-right: auto;
+		margin-left: auto;
+		transform: translateX(-2.25rem);
+		
+		@include mq(sm) {
+			transform: none;
+			float: right;
+			margin-right: 10rem;
+		}
+	}
+
+	&--footer {
+		margin-right: auto;
+		margin-left: auto;
+
+		@include mq($until: sm) {
+			justify-content: center;
+		}
+
+		@include mq(sm) {
+			float: left;
+			margin-right: 3rem;
+		}
+	}
+
+	&__icon {
+		display: block;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 50%;
+		color: #fff;
+		border: .2rem solid rgba(#fff, .2);
+		line-height: 2.6rem;
+		text-align: center;
+		font-size: 1.4rem;
+
+		> i {
+			line-height: inherit;
+		}
+
+		&:hover {
+			background: #fff;
+			border-color: #fff;
+			color: $orange;
+			// box-shadow: inset 0 0 0 1.5rem #fff;
+		}
+
+		& + & {
+			margin-left: 1.5rem;
+		}
+	}
+}

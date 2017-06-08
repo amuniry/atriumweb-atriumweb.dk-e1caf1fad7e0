@@ -1,0 +1,346 @@
+/**
+ * Navigation
+ * ================================================== */ 
+
+.nav-wrapper {
+	overflow-y: hidden;
+	position: fixed;
+	z-index: $z-nav;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	width: 100%;
+	height: 100vh;
+	padding-top: $header-height - 2rem;
+	background: #fff;
+	transition: all .65s $cubic;
+
+	@include mq(sm) {
+		overflow: auto;
+	}
+
+	@include mq(md) {
+		width: 28rem;
+		padding-top: $header-height;
+	}
+
+	// Open state
+	.is-open--nav & {
+		transform: translateX(0);
+	}
+}
+
+.nav {
+	height: 100%;
+	background: $orange;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+
+	@include mq(md) {
+		background: none;
+	}
+
+
+	/**
+	 * Elements
+	 **/ 
+
+	&__list {
+		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+
+		@include mq(md) {
+			display: block;
+		}
+	}
+
+	&__item {
+		position: relative;
+		width: 50%;
+		border-bottom: .1rem solid lighten($orange, 5%);
+		
+		@include mq(md) {
+			width: auto;
+			border-bottom-color: $grey-lighter;
+
+			&:nth-child(odd) {
+				border-right: none;
+			}
+
+			&:first-child {
+				border-top: .1rem solid $grey-lighter;
+			}
+		}
+
+		&.is-active {
+			@include mq(md) {
+				border-bottom: none;
+			}
+		}
+		
+		&.has-dropdown {
+			display: none;
+
+			@include mq(md) {
+				display: block;
+			}
+		}
+
+		&--mobile {
+			@include mq($until: md) {
+				&:first-of-type,
+				&:nth-of-type(2n) {
+					border-right: .1rem solid lighten($orange, 5%);
+				}
+			}
+		} 
+	}
+
+	&__link {
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		height: 11rem;
+		padding: 1.5rem 1.5rem 2rem 1.5rem;
+		font-family: $heading;
+		font-size: 1.6rem;
+		line-height: 1;
+		font-weight: 700;
+		color: #fff;
+		transition-duration: .3s;
+
+		@include mq(xs) {
+			height: 16rem;
+			padding-bottom: 3.5rem;
+			font-size: 2rem;
+		}
+
+		@include mq(md) {
+			display: block;
+			height: auto;
+			padding: 2.5rem 3rem;
+			color: $grey-dark;
+		}
+		
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translateX(100%);
+			height: 100%;
+			width: .5rem;
+			background: $orange;
+			opacity: 0;
+			transition: all .65s $cubic;
+		}
+
+		.nav__item.is-active > &,
+		&:hover {
+			background: lighten($orange, 5%);
+
+			@include mq(md) {
+				background: $grey-lighter;
+				border-right-color: $orange;
+
+				&::after {
+					transform: translateX(0);
+					opacity: 1;
+				}
+			}
+		}
+
+		/**
+		 * Mobile icons
+		 **/ 
+		
+		// Create icon classes
+		@include create-menu-icons($menu-icons);
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			bottom: 5rem;
+			display: block;
+			width: 3rem;
+			height: 3rem;
+			transform: translateX(-50%);
+			background: no-repeat center center;
+			background-size: contain;
+			
+			@include mq(xs) {
+				bottom: 7rem;
+				width: 4rem;
+				height: 4rem;
+			}
+
+			@include mq(md) {
+				display: none;
+			}
+		}
+
+		// Dropdown caret
+		> .caret {
+			position: absolute;
+			right: 1.5rem;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 1.8rem;
+			color: $grey-light;
+
+			&::before {
+				content: '\f107';
+				font-family: atriumweb;
+			}
+		}
+	}
+
+
+	/**
+	 * Dropdown
+	 **/ 
+
+	&__dropdown {
+		overflow: hidden;
+		max-height: 0;
+		transition: max-height .65s $cubic;
+
+		// Open state
+		.is-open > & {
+			max-height: 50rem;
+		}
+
+		.nav__item {
+			border-top: none;
+			border-bottom: none;
+			padding-left: 3rem;
+
+			// Active state
+			&.is-active .nav__link {
+				font-weight: 700;
+				background: none;
+			}
+		}
+
+		.nav__link {
+			position: relative;
+			padding: 1.5rem 3rem;
+			text-transform: none;
+			font-weight: 500;
+			font-size: 1.6rem;
+			background: none;
+			border: none;
+
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				width: 1.2rem;
+				height: .2rem;
+				background: $grey-light;
+			}
+
+			&::after {
+				display: none;
+			}
+
+			&:hover {
+				color: $orange;
+			}
+		}
+	}
+
+
+	/**
+	 * Mobile menu toggle
+	 **/ 
+
+	&-toggle {
+		position: absolute;
+		z-index: $z-nav-toggle;
+		top: (($header-height - 2rem) / 2) - (3rem / 2);
+		right: 2rem;
+		display: block;
+		width: 3.5rem;
+		height: 3.5rem;
+		cursor: pointer;
+		text-align: right;
+
+		@include mq(lg) {
+			right: 3rem;
+			top: ($header-height / 2) - (3rem / 2) - .25rem;
+		}
+
+		@include mq(hd) {
+			right: 5rem;
+		}
+
+		&:hover {
+			.nav-toggle__icon {
+				width: 3.5rem;
+			}
+		}
+	
+		// Elements
+		&__label {
+			display: inline-block;
+			display: none;
+		}
+
+		&__icon {
+			position: relative;
+			z-index: -100;
+			display: inline-block;
+			width: 2.5rem;
+			height: .2rem;
+			background: #fff;
+			transition: all .3s ease;
+
+			&::before,
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				right: 0;
+				width: 3.5rem;
+				height: .2rem;
+				background: #fff;
+				transition: all .3s ease;
+			}
+
+			&::before {
+				bottom: -.7rem;
+			}
+
+			&::after {
+				top: -.7rem;
+			}
+			
+			// Open state
+			.is-open--nav & {
+				background: transparent;
+				width: 3.5rem;
+
+				&::before {
+					top: 0;
+					background: $orange;
+					transform: rotate(45deg);
+				}
+
+				&::after {
+					top: 0;
+					background: $orange;
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+}

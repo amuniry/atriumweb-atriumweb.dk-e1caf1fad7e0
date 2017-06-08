@@ -1,0 +1,140 @@
+/**
+ * Main
+ **/ 
+
+.main { 
+	position: relative;
+	z-index: 1;
+	transition: all .65s $cubic;
+
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		background: rgba($black, .3);
+		transition: all .3s linear;
+	}
+
+	.home &,
+	.error404 & {
+		margin-top: -$header-height + 2;
+
+		&::after {
+			display: none;
+		}
+		
+		@include mq(lg) {
+			margin-top: -$header-height;
+		}
+	}
+
+	// Open nav state
+	.is-open--nav & {
+		@include mq(md) {
+			transform: translateX(-28rem);
+
+			&::after {
+				z-index: $z-nav-overlay;
+				opacity: 1;
+			}
+		}
+	}
+
+
+}
+
+
+
+/**
+ * Flexbox
+ **/ 
+
+.l-flex {
+	display: flex;
+
+	&--equal {
+		flex-wrap: wrap;
+	}
+
+	&--justify {
+		flex-flow: wrap column;
+		justify-content: space-between;
+
+		@include mq(sm) {
+			flex-flow: wrap row;
+		}
+
+		&::after {
+			content: '';
+			flex: auto;
+		}
+	}
+}
+
+/**
+ * Layout helpers
+ **/ 
+
+// Clearfix
+.clearfix {
+	@include clearfix;
+}
+
+// No padding
+.no-gutter {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+// Margins
+.spacing {
+	&--none {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	
+	&--top {
+		padding-top: 3rem;
+
+		@include mq(sm) {
+			padding-top: 5rem;
+		}
+
+		@include mq(lg) {
+			padding-top: 7rem;
+		}
+	}
+	
+	&--bottom {
+		padding-bottom: 3rem;
+
+		@include mq(sm) {
+			padding-bottom: 5rem;
+		}
+
+		@include mq(lg) {
+			padding-bottom: 7rem;
+		}
+	}
+
+	&--both {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+
+		@include mq(sm) {
+			padding-top: 5rem;
+			padding-bottom: 5rem;
+		}
+
+		@include mq(lg) {
+			padding-top: 7rem;
+			padding-bottom: 7rem;
+		}
+	}
+}

@@ -1,0 +1,236 @@
+/**
+ * Comment wrapper
+ **/ 
+
+.comments {
+
+	&__header {
+		// padding-bottom: 1rem;
+		font-size: 2rem;
+		font-weight: 600;
+		// border-bottom: .2rem solid $grey-lighter;
+	}
+
+	&__list {
+		margin-top: 3rem;
+
+		&--child {
+			margin-top: 1.5rem;
+			padding-left: 1.5rem;
+
+			@include mq(lg) {
+				padding-left: 3rem;
+			}
+		}
+	}
+
+	&__btn {
+		display: block;
+		width: 100%;
+		margin-top: 3rem;
+		border: none;
+		padding: .5rem 1rem;
+		text-align: center;
+		background: $orange;
+		// border-radius: .3rem;
+		color: #fff;
+
+		&:hover {
+			background: $grey-dark;
+		}
+	}
+}
+
+/**
+ * Single comments
+ **/ 
+
+.comment {
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+	border-top: .2rem solid $grey-lighter;
+
+	&:first-child,
+	&--parent + & {
+		margin-top: 0;
+		padding-top: 0;
+		border-top: 0;
+	}
+
+
+	&--parent {
+		margin-bottom: 1.5rem;
+		padding-bottom: 1.5rem;
+		border-bottom: .2rem solid $grey-lighter;
+	}
+
+	// Meta
+	&__meta {
+		position: relative;
+		margin-bottom: 1rem;
+		padding-left: 2.5rem;
+		
+		@include mq(hd) {
+			padding-left: 4rem;
+		}
+		
+		&::before {
+			content: '\e900';
+			@extend .icon;
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-size: 2rem;
+			line-height: 1;
+			color: $grey-light;
+			
+			@include mq(hd) {
+				font-size: 2.8rem;
+			}
+		}
+		
+		&__item {
+			display: inline-block;
+			font-size: 1.2rem;
+			text-transform: uppercase;
+
+			& + & {
+				margin-left: .5rem;
+
+				&:before {
+					content: '\00B7';
+					margin-right: .5rem;
+					color: $colour-text;
+				}
+			}
+		}
+	}
+
+	&__author {
+		font-size: 1.6rem;
+	}
+
+	// Content and links
+	&__content {
+		font-size: 1.4rem;
+
+		@include mq(hd) {
+			font-size: 1.6rem;
+		}
+	}
+
+	&__link {
+		color: inherit;
+		font-size: 1.2rem;
+		
+		@include mq(lg) {
+			opacity: 0;
+		}
+
+		&:hover {
+			color: $black;
+		}
+
+		.comment:hover > .comment__meta > & {
+			@include mq(lg) {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+
+/**
+ * Comment form
+ **/ 
+
+.comment-respond {
+	margin-top: 3rem;
+
+	@include mq(lg) {
+		margin-top: 5rem;
+	}
+}
+
+.comment-reply-title {
+	@extend .comments__header;
+
+	> small {
+		display: block;
+		font-size: 1.4rem;
+		text-transform: uppercase;
+	}
+}
+
+.comment-form {
+	margin-top: 3rem;
+	
+	// Notes and paragraphs
+	.comment-notes,
+	.logged-in-as {
+		font-size: 1.2rem;
+		color: $grey;
+
+		a {
+			color: inherit;
+
+			&:hover {
+				color: $orange;
+			}
+		}
+	}
+
+	> p:not(.logged-in-as):not(.comment-notes) {
+		margin-top: 3rem;
+		position: relative;
+	}
+
+	label,
+	input,
+	textarea {
+		transition: all .45s $cubic;
+	}
+
+	label {
+		margin-bottom: 1rem;
+		display: block;
+		font-size: 1.2rem;
+		line-height: 1;
+		text-transform: uppercase;
+		color: $black;
+		letter-spacing: .1em;
+		cursor: pointer;
+
+		&.is-active {
+			color: $orange;
+			transform: translateY(calc(-50% - .4rem));
+		}
+	}
+
+
+	.required {
+		font-weight: 700;
+		color: $red;
+	}
+	
+	input:not(.submit),
+	textarea {
+		display: block;
+		padding: 1rem;
+		width: 100%;
+		background: none;
+		border: .2rem solid darken($grey-lighter, 2%);
+		// border-radius: .3rem;
+		outline: none;
+
+		&:hover,
+		&:focus {
+			border-color: darken($grey-lighter, 3%);
+			background: #fff;
+		}
+	}
+	
+	.submit {
+		@extend .comments__btn;
+	}
+}
